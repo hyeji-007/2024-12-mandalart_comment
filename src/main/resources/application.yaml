@@ -1,0 +1,31 @@
+const:
+  default-page-size: 20
+
+
+mybatis:
+  mapper-locations:  mappers/**/*.xml
+
+spring:
+  application:
+    name: DemoComment
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mariadb://localhost/demo_comment
+    username: root
+    password: green502
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size:  60MB
+
+
+springdoc:
+  swagger-ui:
+    default-model-expand-depth: 10
+    display-request-duration: true
+    groups-order: asc
+    operations-sorter: method
+    path: /swagger
+    tags-sorter: alpha
+  cache:
+    disabled: true
