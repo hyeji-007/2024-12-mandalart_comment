@@ -3,12 +3,22 @@
 
 <mapper namespace="com.green.greengram.feed.comment.FeedCommentMapper">
 
-<insert id="insProjectComment" useGeneratedKeys="true" keyProperty="commentId">
-    INSERT INTO project_comment
-    SET project_id = #{projectId}
-    , user_id = #{userId}
-    , content = #{content}
-</insert>
+    <insert id="postProjectComment" useGeneratedKeys="true" keyProperty="commentId">
+        INSERT INTO project_comment
+        SET project_id = #{projectId}
+        , user_id = #{userId}
+        , content = #{content}
+    </insert>
+
+    <select id="getProjectComment">
+        SELECT comment_id AS commentId
+        , comment
+        , project_id AS projectId
+        FROM project_comment
+        ORDER BY comment_id DESC
+    </select>
+
+
 
 
 
