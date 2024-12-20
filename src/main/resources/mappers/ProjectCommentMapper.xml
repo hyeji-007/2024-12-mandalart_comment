@@ -3,11 +3,11 @@
 
 <mapper namespace="com.green.greengram.feed.comment.FeedCommentMapper">
 
-<insert id="insProjectComment">
+<insert id="insProjectComment" useGeneratedKeys="true" keyProperty="commentId">
     INSERT INTO project_comment
     SET project_id = #{projectId}
     , user_id = #{userId}
-    , comment = #{comment}
+    , content = #{content}
 </insert>
 
 
