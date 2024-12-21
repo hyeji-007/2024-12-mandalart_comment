@@ -10,16 +10,22 @@
         , content = #{content}
     </insert>
 
-    <select id="getProjectComment">
-        SELECT comment_id AS commentId
-        , comment
-        , project_id AS projectId
-        FROM project_comment
-        ORDER BY comment_id DESC
+    <select id="getProjectCommentList">
+        SELECT A.comment_id AS commentId
+        , A.content
+        , B.user_id AS userId
+        , IF(B.nick_name IS NULL, B.user_id, B.nick_name) AS nickName
+        , B.pic
+        FROM shared_project_comment A
+        INNER JOIN user B
+        ON A.user_id = B.user_id
+        WHERE A.project_id = #{projectId}
+        ORDER BY A.comment_id DESC
     </select>
 
-
-
-
-
+    <delete id="deleteProjectComment">
+        DELETE FROM shared_project_comment
+        WHERE comment_id = #{commentId}
+        AND user_id = #{userId}
+    </delete>
 </mapper>
