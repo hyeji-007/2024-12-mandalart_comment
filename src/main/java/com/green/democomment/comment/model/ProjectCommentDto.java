@@ -1,5 +1,6 @@
 package com.green.democomment.comment.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,10 +8,9 @@ import lombok.Setter;
 @Setter
 public class ProjectCommentDto {
     private long commentId;
-    private long projectId;
     private String userId;
     private String content;
     private String nickName;
-    private String createdAt;
-    private String updatedAt;
+    @JsonIgnore
+    private long projectId;
 }
