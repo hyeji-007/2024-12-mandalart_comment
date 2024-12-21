@@ -7,7 +7,6 @@ import lombok.ToString;
 import java.beans.ConstructorProperties;
 
 @Getter
-@Schema(title = "공유 프로젝트 댓글 삭제 요청")
 @ToString
 public class ProjectCommentDelReq {
     @Schema(name = "comment_id", description = "삭제할 댓글 PK")

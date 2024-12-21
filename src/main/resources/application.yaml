@@ -1,6 +1,3 @@
-const:
-  default-page-size: 20
-
 
 mybatis:
   mapper-locations:  mappers/**/*.xml
